@@ -13,7 +13,7 @@
   <h3 align="center"> PHP Model View Controller - MVP </h3>
 
   <p align="center">
-    Owner(s) - @VictrGreco <br>
+    Owner(s) - @vvelazquezc @VictrGreco <br>
     Status - Under development
     <br />
     <a href="https://github.com/VictorGreco/php-mvc-pattern"><strong>Explore the docs »</strong></a>
@@ -71,13 +71,14 @@ If you want to contribute, please fork the repository, create a new branch, and 
 
 ## Wiki 📖
 
-You can find more information of how the app works in the [TDR](./documentation/TDR.md) file.
+You can find more information of how the app works in the [TDR](./TDR.md) file.
 You can also check the full [PAPER](./documentation/Documentation.pdf) on PDF.
 You can also find some [SLIDES]() about the project.
 
-## Author ✒️
+## Authors ✒️
 
 * **Victor Greco** - [VictorGreco](https://github.com/VictorGreco)
+* **Verónica Velázquez** - [vvelazquezc](https://github.com/vvelazquezc)
 
 ---
 ⌨️ whit ❤️ by for you 😊
