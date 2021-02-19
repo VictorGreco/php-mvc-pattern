@@ -13,7 +13,7 @@
   <h3 align="center"> PHP Model View Controller - MVP </h3>
 
   <p align="center">
-    Owner(s) - @vvelazquezc @VictrGreco <br>
+    Owner(s) - @vvelazquezc @VictorGreco <br>
     Status - Under development
     <br />
     <a href="https://github.com/VictorGreco/php-mvc-pattern"><strong>Explore the docs »</strong></a>
