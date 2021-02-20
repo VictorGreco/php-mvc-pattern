@@ -1,14 +1,26 @@
 <?php
-
 require_once "models/userModel.php";
 
-function getAllClients() {
-    echo "getAllClients";
-    //
+function getAll() {
+    $allUsers = getAllUsers();
+    require_once "views/user/userDashboard.php";
+    echo "getAll";
 }
 
-function getClient($request) {
-    echo "getClient";
+function getUser($request) {
+    echo "getUser";
+}
+
+function createUser($request) {
+
+}
+
+function updateUser($request) {
+
+}
+
+function deleteUser($request) {
+
 }
 
 $actionExists = function_exists($action);
