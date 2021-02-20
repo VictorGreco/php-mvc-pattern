@@ -1,35 +1,24 @@
 <?php
 
-require_once MODELS . "ClientModel.php";
+require_once "models/userModel.php";
 
-//OBTAIN THE ACCION PASSED IN THE URL AND EXECUTE IT AS A FUNCTION
-
-//Keep in mind that the function to be executed has to be one of the ones declared in this controller
-// TODO Implement the logic
-
-
-/* ~~~ CONTROLLER FUNCTIONS ~~~ */
-
-/**
- * This function calls the corresponding model function and includes the corresponding view
- */
-function getAllClients()
-{
+function getAllClients() {
+    echo "getAllClients";
     //
 }
 
-/**
- * This function calls the corresponding model function and includes the corresponding view
- */
-function getClient($request)
-{
-    //
+function getClient($request) {
+    echo "getClient";
 }
 
-/**
- * This function includes the error view with a message
- */
-function error($errorMsg)
-{
-    require_once VIEWS . "/error/error.php";
+$actionExists = function_exists($action);
+
+if ($actionExists) {
+    $id = $_GET["id"];
+
+    call_user_func($action, $param);
+} else {
+    $errorMsg = "Oh my... Looks like you missed the queryParams";
+
+    call_user_func("error", $errorMsg);
 }
