@@ -2,23 +2,42 @@
 require_once "models/serviceModel.php";
 
 function getAll() {
+    $allServices = getAllServices();
+    require_once "views/user/seriveDashboard.php";
     echo "getAll";
 }
 
 function getService($request) {
+    $serviceId = getById();
+    require_once "views/user/service.php";
     echo "getService";
 }
 
 
 function createService($request) {
+    create();
+    //$allServices = getAllServices();
+    require_once "views/user/serviceDashboard.php";
+    echo "User created ";
 
 }
 
 function updateService($request) {
+    $serviceId = getById();
+    updateById($serviceId);
+    //$allServices = getAllServices();
+    require_once "views/user/service.php";
+    echo "User updated";
+
 
 }
 
 function deleteService($request) {
+    $serviceId = getById();
+    deleteById($serviceId);
+    //$allServices = getAllServices();
+    require_once "views/user/serviceDashboard.php";
+    echo "Service deleted";
 
 }
 
