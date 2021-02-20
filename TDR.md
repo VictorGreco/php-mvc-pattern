@@ -82,6 +82,8 @@ The **MVC design pattern** is surely a great approach to building **software app
 
 ## 🎨 Mockups and wireframes 🎨
 
+<img src="images/ddbb_schema.png">
+
 <br></br>
 
 ## ⏳ Work estimates ⏳

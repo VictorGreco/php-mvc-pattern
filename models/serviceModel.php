@@ -1,5 +1,8 @@
 <?php
 
+function create() {
+}
+
 function getAll(){
 }
 
