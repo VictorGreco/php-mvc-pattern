@@ -1,6 +1,6 @@
 <?php
 $controller = $_GET["controller"];
-$action = $_GET["action"] ? $_GET["action"] : "getAllClients";
+$action = $_GET["action"] ? $_GET["action"] : "getAll";
 
 $isUsersController = $controller === "user";
 $isServiceController = $controller === "service";

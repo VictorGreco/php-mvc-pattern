@@ -3,7 +3,7 @@
 function create() {
 }
 
-function getAll() {
+function getAllUsers() {
 }
 
 function getById($id) {
