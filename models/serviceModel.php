@@ -3,7 +3,7 @@
 function create() {
 }
 
-function getServices(){
+function getAllServices(){
 }
 
 function getById($id){
