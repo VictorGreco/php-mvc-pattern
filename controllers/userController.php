@@ -8,19 +8,34 @@ function getAll() {
 }
 
 function getUser($request) {
+    $userId = getById();
+    require_once "views/user/user.php";
     echo "getUser";
 }
 
 function createUser($request) {
+    create();
+    //$allUsers = getAllUsers();
+    require_once "views/user/userDashboard.php";
+    echo "User created ";
 
 }
 
 function updateUser($request) {
+    $userId = getById();
+    updateById($userId);
+    //$allUsers = getAllUsers();
+    require_once "views/user/user.php";
+    echo "User updated";
 
 }
 
 function deleteUser($request) {
-
+    $userId = getById();
+    deleteById($userId);
+    //$allUsers = getAllUsers();
+    require_once "views/user/userDashboard.php";
+    echo "User deleted";
 }
 
 $actionExists = function_exists($action);
