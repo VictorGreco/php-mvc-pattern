@@ -1,10 +1,14 @@
 <?php
-require_once "models/userModel.php";
+require_once BASE_PATH . "/models/userModel.php";
 
 function getAll() {
+    echo 'getAll';
     $allUsers = getAllUsers();
-    require_once "views/user/userDashboard.php";
-    echo "getAll";
+    if ($allUsers) {
+        require_once BASE_PATH . "/views/user/userDashboard.php";
+    } else {
+        require_once BASE_PATH . "/views/error/error.php";
+    }
 }
 
 function getUser($request) {
