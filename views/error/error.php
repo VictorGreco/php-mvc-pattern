@@ -1,9 +1,15 @@
-<?php 
-    echo "<h1>$errorMsg</h1>";
-    echo "<img src='../../images/unicorn.svg' alt='' height='400' width='400'>";
-    echo "<h2> Try to navigate to: </h2>";
-    echo "<ul>
-            <li><a href='/?controller=user'>User Controller</a></li>
-            <li><a href='/?controller=service'>Service Controller</a></li>
-        </ul>";
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error</title>
+</head>
+<body>
+  <main class="main">
+    <?= isset($errorMsg) ? "<h1>$errorMsg</h1>" : "<h1>Fatal Error</h1>" ?>
+    <a class="buttons" href='index.php'>Back to main</a>
+  </main>
+</body>
+</html>
