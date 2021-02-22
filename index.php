@@ -1,8 +1,7 @@
 <?php
 
-// This is the entry point of your application, all your application must be executed in
-// the "index.php", in such a way that you must include the controller passed by the URL
-// dynamically so that it ends up including the view.
+//TODO: you need to create dbConstants.php in ./config/ .
+//TODO: inside this file you need to define HOST(your database host), USER_NAME(database user name), PASSWORD(database password).
 
 require_once "config/constants.php";
 require_once "config/dbConstant.php";
@@ -16,6 +15,3 @@ if (isset($_REQUEST['controller'])) {
     empty($_REQUEST) ? require(VIEWS . "main/main.php") : header("Location: index.php");
 }
 
-
-// TODO Implement the logic to include the controller passed by the URL dynamically
-// In the event that the controller passed by URL does not exist, you must show the error view.
