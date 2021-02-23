@@ -25,9 +25,9 @@ function getAll() {
 function getById($id) {
     try {
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $query = "SELECT users.user_no FROM users";
+        $query = "SELECT * FROM users WHERE user_no = $id";
         $executeQuery = mysqli_query($condb, $query);
-        return mysqli_fetch_array($executeQuery);
+        return mysqli_fetch_all($executeQuery);
     } catch (Throwable $th) {
         return false;
     }
