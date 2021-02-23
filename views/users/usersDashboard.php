@@ -39,7 +39,7 @@
     }
     ?>
   </table>
-  <a href="index.php?controller=users&action=getUser">New user</a>
+  <a href="index.php?controller=users&action=newUser">New user</a>
   <a href="index.php">Back</a>
 </body>
 

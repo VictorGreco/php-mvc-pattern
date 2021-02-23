@@ -34,6 +34,23 @@ function getUser($request)
       }
 }
 
+function newUser($request)
+{
+    if (isset($request) && count($request) > 2) {
+
+        require_once MODELS . "usersModel.php";
+        $user = create($request);
+        if ($user) {
+            $allUsers = getAll();
+            require_once VIEWS . "users/usersDashboard.php";
+        } else {
+          error("A problem with database ocurred");
+        }
+      } else {
+        require_once VIEWS . "users/users.php";
+      }
+}
+
 function updateUser($request)
 {
     if (isset($request['user_no'])) {
@@ -48,4 +65,16 @@ function updateUser($request)
       } else {
         error("You need parameters to run this action");
       }
+}
+
+function deleteUser($request)
+{
+    if (isset($request['user_no'])) {
+      require_once MODELS . "usersModel.php";
+      $user = delete($request['user_no']);
+    if ($user) {
+        $allUsers = getAll();
+        require_once VIEWS . "users/usersDashboard.php";
+    }
+  }
 }

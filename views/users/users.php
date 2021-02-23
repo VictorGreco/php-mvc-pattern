@@ -12,7 +12,7 @@
   <form action='index.php' class="form" method="get">
     <h4 class="form__title"><?= isset($user) ? $user[1] . "'s profile" : "New user" ?></h4>
     <input type="hidden" name="controller" value="users">
-    <input type="hidden" name="action" value="<?= isset($user) ? 'updateUser' : 'createUser' ?>">
+    <input type="hidden" name="action" value="<?= isset($user) ? 'updateUser' : 'newUser' ?>">
     <?= isset($user) ? "<input type='hidden' name='user_no' value='$user[0]'>" : "" ?>
 
 
