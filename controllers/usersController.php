@@ -49,3 +49,15 @@ function updateUser($request)
         error("You need parameters to run this action");
       }
 }
+
+function deleteUser($request)
+{
+    if (isset($request['user_no'])) {
+      require_once MODELS . "usersModel.php";
+      $user = delete($request['user_no']);
+    if ($user) {
+        $allUsers = getAll();
+        require_once VIEWS . "users/usersDashboard.php";
+    }
+  }
+}

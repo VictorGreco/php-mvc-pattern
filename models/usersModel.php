@@ -58,12 +58,18 @@ function update($request)
     }
 }
 
-function deleteById($id) {
+function delete($id) {
     try {
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $query = "DELETE users.user_no FROM users";
-        $executeQuery = mysqli_query($condb, $query);
-        return mysqli_fetch_array($executeQuery);
+        $query = "SELECT * FROM users WHERE user_no = $id";
+        $exists = mysqli_query($condb, $query);
+        if (mysqli_num_rows($exists) == 0) {
+            return "This user does not exist";
+        } else {
+            $query = "DELETE FROM users WHERE user_no = $id";
+            mysqli_query($condb, $query);
+            return "User deleted correctly";
+        }
     } catch (Throwable $th) {
         return false;
     }
