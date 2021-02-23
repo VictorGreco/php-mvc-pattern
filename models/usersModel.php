@@ -1,16 +1,5 @@
 <?php
 
-function create() {
-    $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-    try {
-        $query = "INSERT INTO users VALUES ($first_name, $last_name, $email, md5($password), $phone_no, $address, $city, $state);";
-        $executeQuery = mysqli_query($condb, $query);
-        return mysqli_fetch_array($executeQuery);
-    } catch (Throwable $th) {
-        return false;
-    }
-}
-
 function getAll() {
     try {
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
@@ -28,6 +17,32 @@ function getById($id) {
         $query = "SELECT * FROM users WHERE user_no = $id";
         $executeQuery = mysqli_query($condb, $query);
         return mysqli_fetch_all($executeQuery);
+    } catch (Throwable $th) {
+        return false;
+    }
+}
+
+function create($request) {
+    $user_no = $request['user_no'];
+    $first_name = $request['first_name'];
+    $last_name = $request['last_name'];
+    $email = $request['email'];
+    $address = $request['address'];
+    $city = $request['city'];
+    $state = $request['state'];
+    $phone = $request['phone'];
+    try {
+        validateRequest($request);
+        $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
+        $isExist = mysqli_query($condb, "SELECT * FROM users WHERE email = '$email'");
+        if (mysqli_num_rows($isExist) > 0) {
+            return "This user already exists";
+        } else {
+            $query = "INSERT INTO users (first_name, last_name, email, password, phone, address, city, state) VALUES ('$first_name', '$last_name', '$email', '123456', '$address', '$city', '$state', $phone)";
+            mysqli_query($condb, $query);
+            echo $query;
+            return "New user was created correctly";
+        }
     } catch (Throwable $th) {
         return false;
     }
