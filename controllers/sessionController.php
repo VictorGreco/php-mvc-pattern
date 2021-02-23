@@ -11,13 +11,13 @@ isset($action) ? callIfExist($action, $_REQUEST) : error("There is not action de
 
 function login($request) {
     require_once MODELS . "sessionsModel.php";
-    
-    $isValidUser = validate($request);
+
+    $isValidUser = validate($request)[0];
 
     if ($isValidUser) {
-        setcookie("session", $isValidUser['user_no'], timme() + 6000, "/");
+        setcookie("session", $isValidUser[0], time() + 6000, "/");
+        require VIEWS . "main/main.php";
 
-        require_once VIEWS . "main/main.php";
     } else {
         error("Invalid user");
     }

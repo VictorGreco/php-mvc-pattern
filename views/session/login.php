@@ -1,5 +1,5 @@
 <?php
-    echo "<form action='/index.php' method='POST'>
+    echo "<form action='index.php' method='POST'>
         <h2 class='form__title'>Login</h2>
 
         <input type='hidden' name='controller' value='session'>
