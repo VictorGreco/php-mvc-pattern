@@ -22,7 +22,7 @@
         echo "<tr>";
         echo "<td> $service[2]</td>";
         echo "<td> $service[3]</td>";
-        echo "<td><a  href='index.php?controller=services&action=getService&service_no= $service[0]' class='button'>Show</a><a  href='index.php?controller=users&action=deleteuser&user_no= $service[0]' class='button'>Delete</a></td>";
+        echo "<td><a  href='index.php?controller=services&action=getService&service_no= $service[1]' class='button'>Edit </a><a  href='index.php?controller=users&action=deleteuser&user_no= $service[0]' class='button'>Delete</a></td>";
         echo "</tr>";
       }
     } else {
