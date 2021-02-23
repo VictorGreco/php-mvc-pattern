@@ -23,7 +23,7 @@ function getService($request)
     }
 }
 
-function newService($request)
+function createService($request)
 {
     if (isset($request) && count($request) > 2) {
         require_once MODELS . "servicesModel.php";
@@ -40,7 +40,6 @@ function updateService($request)
 {
     if (isset($request['service_no'])) {
         require_once MODELS . "servicesModel.php";
-
         $updated = update($request);
 
         $updated ? renderDashboard("services/servicesDashboard.php") : error("A problem with database ocurred");

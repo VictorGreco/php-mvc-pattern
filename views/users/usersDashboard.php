@@ -22,8 +22,8 @@
       <th>Buttons</th>
     </tr>
     <?php
-    if (isset($allUsers)) {
-      foreach ($allUsers as $user) {
+    if (isset($allResquest)) {
+      foreach ($allResquest as $user) {
         echo "<tr>";
         echo "<td>$user[1]" . " " . "$user[2]" ."</td>";
         echo "<td>$user[3]</td>";

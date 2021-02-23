@@ -26,7 +26,7 @@ function callIfExist($action, $request) {
 }
 
 function renderDashboard($path) {
-  $allUsers = getAll();
+  $allResquest = getAll();
 
   require_once VIEWS . $path;
 }

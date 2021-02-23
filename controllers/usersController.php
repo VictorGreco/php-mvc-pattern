@@ -2,8 +2,6 @@
 $action = $_REQUEST['action'];
 
 isset($action) ? callIfExist($action, $_REQUEST) : error("There is not action defined");
-renderDashboard("users/usersDashboard.php");
-
 
 function getAllUsers()
 {

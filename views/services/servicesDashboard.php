@@ -15,14 +15,18 @@
     <tr>
       <th>Service Name</th>
       <th>Description</th>
+      <th>Stars</th>
+      <th>Price</th>
     </tr>
     <?php
-    if (isset( $allServices)) {
-      foreach ( $allServices as  $service) {
+    if (isset( $allResquest)) {
+      foreach ( $allResquest as  $service) {
         echo "<tr>";
         echo "<td> $service[2]</td>";
         echo "<td> $service[3]</td>";
-        echo "<td><a  href='index.php?controller=services&action=getService&service_no= $service[1]' class='button'>Edit </a><a  href='index.php?controller=users&action=deleteuser&user_no= $service[0]' class='button'>Delete</a></td>";
+        echo "<td> $service[4]</td>";
+        echo "<td> $service[5]</td>";
+        echo "<td><a  href='index.php?controller=services&action=getService&service_no= $service[1]' class='button'>Edit </a><a  href='index.php?controller=services&action=deleteService&service_no= $service[1]' class='button'>Delete</a></td>";
         echo "</tr>";
       }
     } else {
@@ -30,7 +34,7 @@
     }
     ?>
   </table>
-  <a href="index.php?controller=services&action=getService">New Service</a>
+  <a href="index.php?controller=services&action=createService">New Service</a>
   <a href="index.php">Back</a>
 </body>
 
