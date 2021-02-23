@@ -21,7 +21,6 @@ function getAllUsers()
 
 function getUser($request)
 {
-
     if (isset($request['user_no'])) {
         require_once MODELS . "usersModel.php";
         $user = getById($request['user_no'])[0];
