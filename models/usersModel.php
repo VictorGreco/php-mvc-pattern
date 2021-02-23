@@ -23,25 +23,26 @@ function getById($id) {
 }
 
 function create($request) {
-    $user_no = $request['user_no'];
-    $first_name = $request['first_name'];
-    $last_name = $request['last_name'];
-    $email = $request['email'];
-    $address = $request['address'];
-    $city = $request['city'];
-    $state = $request['state'];
-    $phone = $request['phone'];
     try {
+        $first_name = $request['first_name'];
+        $last_name = $request['last_name'];
+        $email = $request['email'];
+        $address = $request['address'];
+        $city = $request['city'];
+        $state = $request['state'];
+        $phone = $request['phone'];
         validateRequest($request);
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
         $isExist = mysqli_query($condb, "SELECT * FROM users WHERE email = '$email'");
         if (mysqli_num_rows($isExist) > 0) {
             return "This user already exists";
         } else {
-            $query = "INSERT INTO users (first_name, last_name, email, password, phone, address, city, state) VALUES ('$first_name', '$last_name', '$email', '123456', '$address', '$city', '$state', $phone)";
-            mysqli_query($condb, $query);
-            echo $query;
-            return "New user was created correctly";
+            $query = "INSERT INTO users (first_name, last_name, email, password, phone, address, city, state) VALUES ('$first_name', '$last_name', '$email', '123456', $phone, '$address', '$city', '$state')";
+            if(mysqli_query($condb, $query)) {
+                return "New user was created correctly";
+            } else {
+                return false;
+            }
         }
     } catch (Throwable $th) {
         return false;
