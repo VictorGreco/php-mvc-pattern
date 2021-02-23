@@ -33,12 +33,26 @@ function getById($id) {
     }
 }
 
-function updateById($id) {
+function update($request)
+{
+    $user_no = $request['user_no'];
+    $first_name = $request['first_name'];
+    $last_name = $request['last_name'];
+    $email = $request['email'];
+    $address = $request['address'];
+    $city = $request['city'];
+    $state = $request['state'];
+    $phone = $request['phone'];
     try {
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $query = "UPDATE users SET user_no=$user_no WHERE $key_toChange=$value_toChange AND $key_toChange=$value_toChange;";
-        $executeQuery = mysqli_query($condb, $query);
-        return mysqli_fetch_array($executeQuery);
+        $exists = mysqli_query($condb, "SELECT * FROM users WHERE user_no = '$user_no'");
+        if (mysqli_num_rows($exists) == 0) {
+            return "This user does not exist";
+        } else {
+            $query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', email = '$email', address = '$address', city = '$city', state = '$state', phone = '$phone' WHERE user_no = '$user_no'";
+            mysqli_query($condb, $query);
+            return 'User updated correctly';
+        }
     } catch (Throwable $th) {
         return false;
     }
