@@ -2,28 +2,36 @@
 
 function getAll() {
     try {
+        $selectQuery = "SELECT * FROM users";
+
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $query = "SELECT * FROM users";
-        $executeQuery = mysqli_query($condb, $query);
-        return mysqli_fetch_all($executeQuery);
+        $rows = mysqli_query($condb, $selectQuery);
+
+        return mysqli_fetch_all($rows);
     } catch (Throwable $th) {
+
         return false;
     }
 }
 
 function getById($id) {
     try {
+        $selectQuery = "SELECT * FROM users WHERE user_no = $id";
+
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $query = "SELECT * FROM users WHERE user_no = $id";
-        $executeQuery = mysqli_query($condb, $query);
-        return mysqli_fetch_all($executeQuery);
+        $rows = mysqli_query($condb, $selectQuery);
+
+        return mysqli_fetch_all($rows);
     } catch (Throwable $th) {
+
         return false;
     }
 }
 
 function create($request) {
     try {
+        validateRequest($request);
+
         $first_name = $request['first_name'];
         $last_name = $request['last_name'];
         $email = $request['email'];
@@ -31,20 +39,16 @@ function create($request) {
         $city = $request['city'];
         $state = $request['state'];
         $phone = $request['phone'];
-        validateRequest($request);
+
+        $selectQuery = "SELECT * FROM users WHERE email = '$email'";
+        $insertQuery = "INSERT INTO users (first_name, last_name, email, password, phone, address, city, state) VALUES ('$first_name', '$last_name', '$email', '123456', $phone, '$address', '$city', '$state')";
+
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $isExist = mysqli_query($condb, "SELECT * FROM users WHERE email = '$email'");
-        if (mysqli_num_rows($isExist) > 0) {
-            return "This user already exists";
-        } else {
-            $query = "INSERT INTO users (first_name, last_name, email, password, phone, address, city, state) VALUES ('$first_name', '$last_name', '$email', '123456', $phone, '$address', '$city', '$state')";
-            if(mysqli_query($condb, $query)) {
-                return "New user was created correctly";
-            } else {
-                return false;
-            }
-        }
+        $rows = mysqli_query($condb, $selectQuery);
+
+        return mysqli_num_rows($rows) <= 0 ? mysqli_query($condb, $insertQuery) : false;
     } catch (Throwable $th) {
+
         return false;
     }
 }
@@ -59,34 +63,32 @@ function update($request)
     $city = $request['city'];
     $state = $request['state'];
     $phone = $request['phone'];
+
     try {
+        $selectQuery = "SELECT * FROM users WHERE user_no = '$user_no'";
+        $updateQuery = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', email = '$email', address = '$address', city = '$city', state = '$state', phone = '$phone' WHERE user_no = '$user_no'";
+
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $exists = mysqli_query($condb, "SELECT * FROM users WHERE user_no = '$user_no'");
-        if (mysqli_num_rows($exists) == 0) {
-            return "This user does not exist";
-        } else {
-            $query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', email = '$email', address = '$address', city = '$city', state = '$state', phone = '$phone' WHERE user_no = '$user_no'";
-            mysqli_query($condb, $query);
-            return 'User updated correctly';
-        }
+        $rows = mysqli_query($condb, $selectQuery);
+
+        return mysqli_num_rows($rows) !== 0 ? mysqli_query($condb, $updateQuery) : false;
     } catch (Throwable $th) {
+
         return false;
     }
 }
 
 function delete($id) {
     try {
+        $selectQuery = "SELECT * FROM users WHERE user_no = $id";
+        $deleteQuery = "DELETE FROM users WHERE user_no = $id";
+
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
-        $query = "SELECT * FROM users WHERE user_no = $id";
-        $exists = mysqli_query($condb, $query);
-        if (mysqli_num_rows($exists) == 0) {
-            return "This user does not exist";
-        } else {
-            $query = "DELETE FROM users WHERE user_no = $id";
-            mysqli_query($condb, $query);
-            return "User deleted correctly";
-        }
+        $rows = mysqli_query($condb, $selectQuery);
+
+        return mysqli_num_rows($rows) != 0 ? mysqli_query($condb, $deleteQuery) : false;
     } catch (Throwable $th) {
+
         return false;
     }
 }

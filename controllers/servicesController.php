@@ -1,22 +1,13 @@
 <?php
+$action = $_REQUEST['action'];
 
-
-
-if (isset($_REQUEST['action'])) {
-    function_exists($_REQUEST['action']) ? call_user_func($_REQUEST['action'], $_REQUEST) : error("This action does not exist");
-} else {
-    error("There is not action defined");
-}
-
+isset($action) ? callIfExist($action, $_REQUEST) : error("There is not action defined");
 
 function getAllServices()
 {
     require_once MODELS . "servicesModel.php";
-    $allServices = getAll();
-    if ($allServices) {
-        require_once VIEWS . "services/servicesDashboard.php";
-    } else {
-    }
+
+    renderDashboard("services/servicesDashboard.php");
 }
 
 function getService($request)
@@ -24,12 +15,10 @@ function getService($request)
     if (isset($request['service_no'])) {
         require_once MODELS . "servicesModel.php";
         $service = getById($request['service_no'])[0];
-        if ($service) {
-            require_once VIEWS . "services/services.php";
-        } else {
-            error("A problem with database ocurred");
-        }
+
+        $service ? require_once VIEWS . "services/services.php" : error("A problem with database ocurred");
     } else {
+
         error("You need parameters to run this action");
     }
 }
@@ -39,14 +28,10 @@ function newService($request)
     if (isset($request) && count($request) > 2) {
         require_once MODELS . "servicesModel.php";
         $created = create($request);
-        if ($created) {
-            $allServices = getAll();
 
-            require_once VIEWS . "services/servicesDashboard.php";
-        } else {
-            error("A problem with database ocurred");
-        }
+        $created ? renderDashboard("services/servicesDashboard.php") : error("A problem with database ocurred");
     } else {
+
         require_once VIEWS . "services/services.php";
     }
 }
@@ -58,27 +43,22 @@ function updateService($request)
 
         $updated = update($request);
 
-        if ($updated) {
-            $allServices = getAll();
-
-            require_once VIEWS . "services/servicesDashboard.php";
-        } else {
-            error("A problem with database ocurred");
-        }
+        $updated ? renderDashboard("services/servicesDashboard.php") : error("A problem with database ocurred");
     } else {
+
         error("You need parameters to run this action");
     }
 }
 
 function deleteService($request)
 {
-    if (isset($request['service_no'])) {
-        require_once MODELS . "servicesModel.php";
-        $deleted = delete($request['service_no']);
-        if ($deleted) {
-            $allUsers = getAll();
+    $service_no = $request['service_no'];
 
-            require_once VIEWS . "services/servicesDashboard.php";
-        }
+    if (isset($service_no)) {
+        require_once MODELS . "servicesModel.php";
+
+        $deleted = delete($service_no);
+
+        $deleted ? renderDashboard("services/servicesDashboard.php") : error("A problem while deleting ocurred");
     }
 }
