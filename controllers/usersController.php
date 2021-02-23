@@ -1,6 +1,7 @@
 <?php
 
 
+
 if (isset($_REQUEST['action'])) {
     function_exists($_REQUEST['action']) ? call_user_func($_REQUEST['action'], $_REQUEST) : error("This action does not exist");
 } else {
@@ -15,12 +16,20 @@ function getAllUsers()
     if ($allUsers) {
         require_once VIEWS . "users/usersDashboard.php";
     } else {
-        error ('Os quiero mucho others, espero que este mensaje nunca se muestre si no, sus mato.');
     }
 }
 
 function getUser($request)
 {
-    //
-    require_once MODELS . "usersModel.php";
+    if (isset($request['user_no'])) {
+        require_once MODELS . "usersModel.php";
+        $user = getById($request['user_no'])[0];
+        if ($user) {
+            require_once VIEWS . "users/users.php";
+        } else {
+          error("A problem with database ocurred");
+        }
+      } else {
+        error("You need parameters to run this action");
+      }
 }
