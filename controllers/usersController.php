@@ -33,3 +33,19 @@ function getUser($request)
         error("You need parameters to run this action");
       }
 }
+
+function updateUser($request)
+{
+    if (isset($request['user_no'])) {
+        require_once MODELS . "usersModel.php";
+        $user = update($request);
+        if ($user) {
+            $allUsers = getAll();
+            require_once VIEWS . "users/usersDashboard.php";
+        } else {
+          error("A problem with database ocurred");
+        }
+      } else {
+        error("You need parameters to run this action");
+      }
+}

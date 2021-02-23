@@ -31,7 +31,7 @@
         echo "<td>$user[7]</td>";
         echo "<td>$user[8]</td>";
         echo "<td>$user[5]</td>";
-        echo "<td><a  href='index.php?controller=users&action=getUser&user_no=$user[0]' class='button'>Show</a><a  href='index.php?controller=users&action=deleteuser&user_no=$user[0]' class='button'>Delete</a></td>";
+        echo "<td><a  href='index.php?controller=users&action=getUser&user_no=$user[0]' class='button'>Edit</a> <a  href='index.php?controller=users&action=deleteuser&user_no=$user[0]' class='button'>Delete</a></td>";
         echo "</tr>";
       }
     } else {

@@ -23,7 +23,6 @@ function getAll() {
 }
 
 function getById($id) {
-    echo $id;
     try {
         $condb = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'mvc_services');
         $query = "SELECT * FROM services WHERE service_no = $id";

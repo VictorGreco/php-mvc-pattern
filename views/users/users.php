@@ -11,16 +11,16 @@
 <body>
   <form action='index.php' class="form" method="get">
     <h4 class="form__title"><?= isset($user) ? $user[1] . "'s profile" : "New user" ?></h4>
-    <input type="hidden" name="controller" value="user">
-    <input type="hidden" name="action" value="<?= isset($user) ? 'updateuser' : 'createuser' ?>">
-    <?= isset($user) ? "<input type='hidden' name='id' value='$user[0]'>" : "" ?>
+    <input type="hidden" name="controller" value="users">
+    <input type="hidden" name="action" value="<?= isset($user) ? 'updateUser' : 'createUser' ?>">
+    <?= isset($user) ? "<input type='hidden' name='user_no' value='$user[0]'>" : "" ?>
 
 
     <section class="form-section">
       <label class="form-section__label" for="first_name">First Name</label>
-      <input class="form-section__input" type="text" name="name" id="first_name" value="<?= isset($user) ? $user[1] : '' ?>" required>
-      <label class="form-section__label" for="lastName">Last Name</label>
-      <input class="form-section__input" type="text" name="lastName" id="last_name" value="<?= isset($user) ? $user[2] : '' ?>" required>
+      <input class="form-section__input" type="text" name="first_name" id="first_name" value="<?= isset($user) ? $user[1] : '' ?>" required>
+      <label class="form-section__label" for="last_name">Last Name</label>
+      <input class="form-section__input" type="text" name="last_name" id="last_name" value="<?= isset($user) ? $user[2] : '' ?>" required>
     </section>
 
     <section class="form-section">
@@ -41,8 +41,8 @@
     </section>
 
     <section class="form-section">
-      <label class="form-section__label" for="phoneNumber">Phone Number</label>
-      <input class="form-section__input" type="number" name="phoneNumber" id="phoneNumber" value="<?= isset($user) ?  $user[5] : '' ?>" required>
+      <label class="form-section__label" for="phone">Phone Number</label>
+      <input class="form-section__input" type="number" name="phone" id="phone" value="<?= isset($user) ?  $user[5] : '' ?>" required>
     </section>
 
     <input type="submit" class="submit" value="Submit">
