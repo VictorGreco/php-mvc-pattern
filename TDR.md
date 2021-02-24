@@ -9,8 +9,6 @@
 ## 🔮 Overview 🔮
 The challenge this tie was to understand about Patters, PHP and MySQL. From the master they challenged our team to create a PHP application using Model View Controller.
 
-<br></br>
-
 ## 💡 Background 💡
 
 ### What is an architecture pattern ?
@@ -35,11 +33,7 @@ MVC pattern was commonly used to develop GUIs but now it's also very common to u
 
 The **MVC design pattern** is surely a great approach to building **software applications**. The MVC architecture is easy to implement as it offers above given numerous advantages. Projects that are developed with the help of the MVC pattern can be easily developed with lesser expenditure and within less time too. Above all, its power to manage multiple views makes MVC the best architecture pattern for developing web applications.
 
-<br></br>
-
 ## ⚓ Goals, non-goals, and future goals ⚓
-
-<br></br>
 
 ### ✅ Goals ✅
 - Implement the MVC pattern using PHP without any library.
@@ -51,22 +45,16 @@ The **MVC design pattern** is surely a great approach to building **software app
 - There must be almost **4 different actions** that demonstrate that the pattern is implemented correctly and are capable of displaying the data obtained from the source in a view.
 - **URL’s** must be controlled by **parameters** passed by **GET** method.
 
-<br></br>
-
 ### ❌ Non Goals ❌
 
 - Have a great design but it will be considered as a good extra point.
 - Database doesn't need to have a great design.
 - No Object Oriented Programming allowed.
 
-<br></br>
-
 ### 🤞🏻  Future Goals 🤞🏻
 
 - Work on a great design for the views (UX).
 - Implement a v2 of databases architecture in order to have a great and performant MySQL.
-
-<br></br>
 
 ## ⚙️ Detailed design ⚙️
 
@@ -78,19 +66,13 @@ The **MVC design pattern** is surely a great approach to building **software app
 - Delete files that are not used or are not necessary to evaluate the project.
 - You must create a correctly documented README file in the root directory of the project (see guidelines in Resources).
 
-<br></br>
-
 ## 🎨 Mockups and wireframes 🎨
 
 <img src="images/ddbb_schema.png">
 
-<br></br>
-
 ## ⏳ Work estimates ⏳
 
 This project estimation delivery is for 3 work days. Including all the documentation and learning phase.
-
-<br></br>
 
 ## 🚀 Roll-out plan 🚀
 - **Requirement Analysis** (2h) during the second day we will review with the team all the requirement.
@@ -99,15 +81,11 @@ This project estimation delivery is for 3 work days. Including all the documenta
 - **Software Development** (12h) The app development will be the most complex part.
 - **Testing** (1h) for this project we didn't provide any testing tool. Testing on this case will be ensure everything works perfect manually.
 
-<br></br>
-
 ## 🤖 Tech Stack 🤖
 
 - [PHP](https://www.php.net/docs.php).
 - [MySQL](https://dev.mysql.com/doc/).
 - [MVC Patter](https://en.wikipedia.org/wiki/Model).
-
-<br></br>
 
 ## 📚 Resources 📚
 * Project requirements from [Assembler](https://docs.google.com/document/d/1g6INDHOTj5wDHr47_osXRirmloEMXURqnQSsq0nOVSQ/edit#heading=h.b804dentmutd)
